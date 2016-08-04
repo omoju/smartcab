@@ -1,0 +1,193 @@
+\documentclass[twoside,openright,titlepage,numbers=noenddot,headinclude,%
+               footinclude=true,cleardoublepage=empty,abstractoff,BCOR=5mm,%
+               paper=a4,fontsize=11pt,ngerman,american]{scrreprt}
+
+% Custom config ===============================================================
+
+% Classic thesis
+\usepackage{amssymb}
+\input{classicthesis-config}
+
+% Theorems and definitions
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+
+\newtheorem{algorithm}{Algorithm}
+\usepackage{algpseudocode}
+
+% Counters
+\renewcommand{\labelenumi}{{\color{halfgray}(\alph{enumi})}}
+\renewcommand{\labelenumii}{\color{halfgray}{\roman{enumii}.}}
+\renewcommand{\labelitemi}{{\color{halfgray}-}}%\raisebox{0.3ex}{\tiny$\blacksquare$}}}
+
+\numberwithin{theorem}{chapter}
+\numberwithin{definition}{chapter}
+\numberwithin{algorithm}{chapter}
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+
+% Maths
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\numberwithin{equation}{chapter}
+\allowdisplaybreaks
+
+% Shaded boxes
+\usepackage{framed}
+\newenvironment{remark}[1]{%
+  \definecolor{shadecolor}{gray}{0.9}%
+  \begin{shaded}{\color{Maroon}\noindent\textsc{#1}}\\%
+}{%
+  \end{shaded}%
+}
+
+% Code snippets
+%\usepackage{color}
+
+\usepackage{color}
+\definecolor{rulecolor}{rgb}{0.80,0.80,0.80}
+\definecolor{bgcolor}{rgb}{1.0,1.0,1.0}
+%\newminted{python}{bgcolor=bgcolor}
+
+% Todo
+\newcommand{\todo}[1]{\textcolor{red}{[TODO] #1}}
+
+% PS pictures
+%\usepackage{pstricks,auto-pst-pdf}
+
+% For the images and graphics
+\usepackage{subfig} % For subfigures in floats
+\usepackage[section]{placeins}
+\makeatletter
+ \@ifpackageloaded{tex4ht}{%
+\usepackage[dvips]{color,graphicx}
+    \usepackage[tex4ht]{hyperref}
+    }{%
+      \usepackage[pdftex]{graphicx}
+      \usepackage{hyperref}
+          }
+\makeatother
+\graphicspath{ {figures/} } %Path to images
+
+
+% Landscape tables
+\usepackage{rotating}
+
+% Checkmarks
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+% Wide tables
+\usepackage{ltablex}
+
+
+% -----------------------------------------------------------------------------
+
+\begin{document}
+\frenchspacing
+\raggedbottom
+\selectlanguage{american}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+
+% Front pages =================================================================
+\include{titlepage}
+
+% Content =====================================================================
+\pagenumbering{arabic}
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%  CHAPTER CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapter*{Definition}
+
+\section*{Problem Statement}
+In the not-so-distant future, taxicab companies across the United States no longer employ human drivers to operate their fleet of vehicles. Instead, the taxicabs are operated by self-driving agents---known as \textbf{smartcabs}---to transport people from one location to another within the cities those companies operate. In major metropolitan areas, such as Chicago, New York City, and San Francisco, an increasing number of people have come to rely on \textbf{smartcabs} to get to where they need to go as safely and efficiently as possible. Although \textbf{smartcabs} have become the transport of choice, concerns have arose that a self-driving agent might not be as safe or efficient as human drivers, particularly when considering city traffic lights and other vehicles. To alleviate these concerns, your task as an employee for a national taxicab company is to use reinforcement learning techniques to construct a demonstration of a smartcab operating in real-time to prove that both safety and efficiency can be achieved.
+
+
+%--------------------------------------------------------------------------------
+%
+%  CHAPTER 
+%
+%--------------------------------------------------------------------------------
+
+\chapter*{Implement a Basic Driving Agent}
+
+\section*{Question}
+
+\begin{itemize}
+\item Observe what you see with the agent's behavior as it takes random actions. Does the \textbf{smartcab} eventually make it to the destination? Are there any other interesting observations to note?
+\end{itemize}
+
+%--------------------------------------------------------------------------------
+%
+%  CHAPTER 
+%
+%--------------------------------------------------------------------------------
+
+\chapter*{Inform the Driving Agent}
+
+\section*{Question}
+
+\begin{itemize}
+\item What states have you identified that are appropriate for modeling the smartcab and environment? Why do you believe each of these states to be appropriate for this problem?
+
+\item [Optional] How many states in total exist for the smartcab in this environment? Does this number seem reasonable given that the goal of Q-Learning is to learn and make informed decisions about each state? Why or why not?
+\end{itemize}
+
+%--------------------------------------------------------------------------------
+%
+%  CHAPTER 
+%
+%--------------------------------------------------------------------------------
+
+\chapter*{Implement a Q-Learning Driving Agent}
+
+\section*{Question}
+
+\begin{itemize}
+\item What changes do you notice in the agent's behavior when compared to the basic driving agent when random actions were always taken? Why is this behavior occurring?
+
+\end{itemize}
+
+
+%--------------------------------------------------------------------------------
+%
+%  CHAPTER 
+%
+%--------------------------------------------------------------------------------
+
+\chapter*{Improve the Q-Learning Driving Agent}
+
+\section*{Question}
+
+\begin{itemize}
+\item Report the different values for the parameters tuned in your basic implementation of Q-Learning. For which set of parameters does the agent perform best? How well does the final driving agent perform?
+\item Does your agent get close to finding an optimal policy, i.e. reach the destination in the minimum possible time, and not incur any penalties? How would you describe an optimal policy for this problem?
+
+\end{itemize}
+
+%--------------------------------------------------------------------------------
+%
+%  CHAPTER 
+%
+%--------------------------------------------------------------------------------
+
+\chapter*{Conclusion}
+
+
+
+
+
+
+\end{document}  
