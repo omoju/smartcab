@@ -52,7 +52,9 @@
 \usepackage{color}
 \definecolor{rulecolor}{rgb}{0.80,0.80,0.80}
 \definecolor{bgcolor}{rgb}{1.0,1.0,1.0}
-%\newminted{python}{bgcolor=bgcolor}
+
+
+\usepackage{minted}
 
 % Todo
 \newcommand{\todo}[1]{\textcolor{red}{[TODO] #1}}
@@ -128,6 +130,20 @@ In the not-so-distant future, taxicab companies across the United States no long
 \begin{itemize}
 \item Observe what you see with the agent's behavior as it takes random actions. Does the \textbf{smartcab} eventually make it to the destination? Are there any other interesting observations to note?
 \end{itemize}
+
+
+
+
+ 
+
+
+At first, I set the action of the self-driving agent as forward so I could understand how the grid world worked. From this choice, it was evident the smartcab would never get to the destination, except if the case when we were lucky, and the goal just happened to be a few intersections ahead of the cab.
+\begin{minted}{python}
+
+#TODO: Select action according to your policy
+  action = random.choice(['forward'])
+
+\end{minted}
 
 %--------------------------------------------------------------------------------
 %

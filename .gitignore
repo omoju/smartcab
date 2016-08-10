@@ -3,7 +3,12 @@
 *.ipynb_checkpoints/*
 
 
-# XeLatex #
+# Minted, pygments#
+###################
+*.pygstyle
+*.pygtex
+
+#     XeLatex     #
 ###################
 *.aux
 *.bbl
