@@ -137,13 +137,28 @@ In the not-so-distant future, taxicab companies across the United States no long
  
 
 
-At first, I set the action of the self-driving agent as forward so I could understand how the grid world worked. From this choice, it was evident the smartcab would never get to the destination, except if the case when we were lucky, and the goal just happened to be a few intersections ahead of the cab.
+At first, I set the action of the self-driving agent as forward so I could understand how the grid world worked. 
 \begin{minted}{python}
 
-#TODO: Select action according to your policy
-  action = random.choice(['forward'])
+# Select action according to your policy
+action = random.choice(['forward'])
 
 \end{minted}
+
+From this choice, it was evident the smartcab would never get to the destination, except in the case when we were lucky, and the goal just happened to be in an intersection ahead of the cab.
+\begin{minted}{python}
+
+# Select action according to your policy
+action = random.choice([None, 'forward', 'left', 'right'])
+
+\end{minted}
+
+It was frustrating to watch. Most of the time, the agent never made it to the destination. There were a few times when it did; however, as expected, it \emph{didn't learn} anything from making good decisions or bad decisions. There were no consequences for its behavior.  
+
+
+
+
+
 
 %--------------------------------------------------------------------------------
 %
