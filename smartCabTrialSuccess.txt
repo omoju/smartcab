@@ -23,5 +23,3 @@ Environment.act(): Primary agent has reached destination!
 Environment.act(): Primary agent has reached destination!
 Environment.act(): Primary agent has reached destination!
 Environment.act(): Primary agent has reached destination!
-Environment.act(): Primary agent has reached destination!
-Environment.act(): Primary agent has reached destination!

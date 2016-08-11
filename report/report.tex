@@ -155,6 +155,10 @@ action = random.choice([None, 'forward', 'left', 'right'])
 
 It was frustrating to watch. Most of the time, the agent never made it to the destination. There were a few times when it did; however, as expected, it \emph{didn't learn} anything from making good decisions or bad decisions. There were no consequences for its behavior.  
 
+I decided to run a few trials of the simulation. For each trial, I captured whether it succeeded or failed by writing out the termination condition into a log file, one for success (smartCabTrialSuccess.txt) and another one for failure (smartCabTrialFailure.txt).
+
+I ran a 100 simulation trials four times and got an average success rate of 19.3\% and an average failure rate of 80.7\%.
+
 
 
 
@@ -180,7 +184,9 @@ It was frustrating to watch. Most of the time, the agent never made it to the de
 Things we have to keep track off:
 \begin{itemize}
 \item $T$, the time we have left
-\item
+\item Where we are right now
+\item What's happening at that intersection
+\item the state that there is a car in front of me
 \end{itemize}
 
 
