@@ -31,6 +31,20 @@ class Environment(object):
     valid_headings = [(1, 0), (0, -1), (-1, 0), (0, 1)]  # ENWS
     hard_time_limit = -100  # even if enforce_deadline is False, end trial when deadline reaches this value (to avoid deadlocks)
 
+    with open('smartCabTrialFailure.txt', 'w') as f:
+        f.write('-' * 33)
+        f.write('New Trial')
+        f.write('-' * 33)
+        f.write('\n\n')
+
+    with open('smartCabTrialSuccess.txt', 'w') as f:
+        f.write('-' * 33)
+        f.write('New Trial')
+        f.write('-' * 33)
+        f.write('\n\n')   
+
+
+
     def __init__(self, num_dummies=3):
         self.num_dummies = num_dummies  # no. of dummy agents
 
