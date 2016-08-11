@@ -41,7 +41,7 @@ class Environment(object):
         f.write('-' * 33)
         f.write('New Trial')
         f.write('-' * 33)
-        f.write('\n\n')   
+        f.write('\n\n')
 
 
 
