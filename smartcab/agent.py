@@ -28,26 +28,22 @@ class LearningAgent(Agent):
 
         # TODO: Update state
         sensed_inputs = self.env.sense(self)
-        if(sensed_inputs['light'] == 'green'):
-            if sensed_inputs['oncoming'] == None and sensed_inputs['left'] == None and sensed_inputs['right'] == None:
-                self.state = 'Unobstructed'
-        elif(sensed_inputs['light'] == 'green'):
-            if sensed_inputs['left'] == 'left':
-                self.state = 'leftUnobstructed'
-        elif(sensed_inputs['light'] == 'green'):
-            if sensed_inputs['left'] == 'right':
-                self.state = 'rightUnobstructed'
-        elif sensed_inputs['light'] == 'red':
-            if sensed_inputs['oncoming'] == 'forward':
-                self.state = "well gurl"
 
+
+
+
+        if sensed_inputs['light'] == 'red':
+                self.state = "red light"
+
+        elif sensed_inputs['light'] == 'green':
+                self.state = "green light"
 
 
 
 
 
         # TODO: Select action according to your policy
-        action = random.choice(['left']) #None, 'forward', 'left', 'right'
+        action = random.choice([None, 'forward', 'left', 'right']) #None, 'forward', 'left', 'right'
 
         # Execute action and get reward
         reward = self.env.act(self, action)
@@ -68,12 +64,12 @@ def run():
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
 
     # Now simulate it
-    sim = Simulator(e, update_delay=1.5, display=True)  # create simulator (uses pygame when display=True, if available)
+    sim = Simulator(e, update_delay=0.5, display=True)  # create simulator (uses pygame when display=True, if available)
     # NOTE: To speed up simulation, reduce update_delay and/or set display=False
 
 
 
-    sim.run(n_trials=1)  # run for a specified number of trials
+    sim.run(n_trials=10)  # run for a specified number of trials
     # NOTE: To quit midway, press Esc or close pygame window, or hit Ctrl+C on the command-line
 
 
