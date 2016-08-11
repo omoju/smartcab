@@ -123,12 +123,12 @@ class Environment(object):
             if agent_deadline <= self.hard_time_limit:
                 self.done = True
                 print "Environment.step(): Primary agent hit hard time limit ({})! Trial aborted.".format(self.hard_time_limit)
-                with open('smartCabTrialLog.txt', 'a') as f:
+                with open('smartCabTrialFailure.txt', 'a') as f:
                     f.write("Environment.step(): Primary agent ran out of time! Trial aborted.\n")
             elif self.enforce_deadline and agent_deadline <= 0:
                 self.done = True
                 print "Environment.step(): Primary agent ran out of time! Trial aborted."
-                with open('smartCabTrialLog.txt', 'a') as f:
+                with open('smartCabTrialFailure.txt', 'a') as f:
                     f.write("Environment.step(): Primary agent ran out of time! Trial aborted.\n")
             self.agent_states[self.primary_agent]['deadline'] = agent_deadline - 1
 
@@ -215,10 +215,8 @@ class Environment(object):
                     reward += 10  # bonus
                 self.done = True
                 print "Environment.act(): Primary agent has reached destination!"  # [debug]
-                with open('smartCabTrialLog.txt', 'a') as f:
-                    f.write("Environment.act(): Primary agent has reached destination!" +
-                    str(self.agent_states[self.primary_agent]['deadline'])+"/"+
-                    str(self.deadline_start)+" "+ reward +"\n")
+                with open('smartCabTrialSuccess.txt', 'a') as f:
+                    f.write("Environment.act(): Primary agent has reached destination!\n")
             self.status_text = "state: {}\naction: {}\nreward: {}".format(agent.get_state(), action, reward)
             #print "Environment.act() [POST]: location: {}, heading: {}, action: {}, reward: {}".format(location, heading, action, reward)  # [debug]
 
