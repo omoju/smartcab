@@ -100,7 +100,7 @@
 
 
 % Front pages =================================================================
-\include{titlepage}
+%\include{titlepage}
 
 % Content =====================================================================
 \pagenumbering{arabic}
@@ -111,7 +111,10 @@
 %  CHAPTER CONTENTS
 %----------------------------------------------------------------------------------------
 
-\chapter*{Definition}
+
+\chapter*{Train a Smartcab How to Drive}
+Omoju Miller\\
+\today
 
 \section*{Problem Statement}
 In the not-so-distant future, taxicab companies across the United States no longer employ human drivers to operate their fleet of vehicles. Instead, the taxicabs are operated by self-driving agents---known as \textbf{smartcabs}---to transport people from one location to another within the cities those companies operate. In major metropolitan areas, such as Chicago, New York City, and San Francisco, an increasing number of people have come to rely on \textbf{smartcabs} to get to where they need to go as safely and efficiently as possible. Although \textbf{smartcabs} have become the transport of choice, concerns have arose that a self-driving agent might not be as safe or efficient as human drivers, particularly when considering city traffic lights and other vehicles. To alleviate these concerns, your task as an employee for a national taxicab company is to use reinforcement learning techniques to construct a demonstration of a smartcab operating in real-time to prove that both safety and efficiency can be achieved.
@@ -167,23 +170,26 @@ I ran a 100 simulation trials four times and got an average success rate of 19.3
 \section*{Question}
 
 \begin{itemize}
-\item What states have you identified that are appropriate for modeling the smartcab and environment?
+\item What states have you identified that are appropriate for modeling the smartcab and environment?\\
+States: 
+  \begin{itemize}
+    \item At an intersection with a red light
+    \item At an intersection with a green light
+    \item When the smartcab is stationary
+    \item When the smartcab is moving
+    \item When the smartcab is turning left
+    \item When the smartcab is turning right
+
+  \end{itemize}
+
+
+
 \item Why do you believe each of these states to be appropriate for this problem?
 
 \item Optional: How many states in total exist for the smartcab in this environment?
 \item Optional: Does this number seem reasonable given that the goal of Q-Learning is to learn and make informed decisions about each state? Why or why not?
 \end{itemize}
 
-
-
-
-Things we have to keep track off:
-\begin{itemize}
-\item $T$, the time we have left
-\item Where we are right now
-\item What's happening at that intersection
-\item the state that there is a car in front of me
-\end{itemize}
 
 
 \begin{figure}[!hbtp]
