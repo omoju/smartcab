@@ -28,17 +28,26 @@ class LearningAgent(Agent):
 
         # TODO: Update state
         sensed_inputs = self.env.sense(self)
+        print sensed_inputs
 
-
-
-
+        # At an intersection with a red light
         if sensed_inputs['light'] == 'red':
                 self.state = "red light"
 
+        # At an intersection with a green light
         elif sensed_inputs['light'] == 'green':
                 self.state = "green light"
 
+        if sensed_inputs['oncoming']:
+            self.state = 'oncoming traffic'
 
+
+
+        # {'light': 'green', 'oncoming': None, 'right': None, 'left': None}
+        # When the smartcab is stationary
+        # When the smartcab is moving
+        # When the smartcab is turning left
+        # When the smartcab is turning right
 
 
 

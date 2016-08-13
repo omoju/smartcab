@@ -175,6 +175,7 @@ States:
   \begin{itemize}
     \item At an intersection with a red light
     \item At an intersection with a green light
+    \item At an intersection with oncoming traffic
     \item When the smartcab is stationary
     \item When the smartcab is moving
     \item When the smartcab is turning left
@@ -184,7 +185,11 @@ States:
 
 
 
-\item Why do you believe each of these states to be appropriate for this problem?
+\item Why do you believe each of these states to be appropriate for this problem?\\
+
+There are basically two universal states that the smartcab can be in. Either it is in use, or it is not. In the case that it is not in use, it might be recharging, going through maintenance or just parked.
+
+When it is in service, there are only a finite set of things that the smartcab can be doing. These states have to do with either movement or driving safety.
 
 \item Optional: How many states in total exist for the smartcab in this environment?
 \item Optional: Does this number seem reasonable given that the goal of Q-Learning is to learn and make informed decisions about each state? Why or why not?
