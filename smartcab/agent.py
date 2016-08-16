@@ -30,25 +30,22 @@ class LearningAgent(Agent):
         sensed_inputs = self.env.sense(self)
         print sensed_inputs
 
+        default_state = 'ok to PROCEED or '
         # At an intersection with a red light
         if sensed_inputs['light'] == 'red' and sensed_inputs['left'] == None:
-            self.state = "RIGHT on RED"
+            self.state = "ok to RIGHT on RED"
         elif sensed_inputs['light'] == 'red':
             self.state = "STOP RED light"
 
+        # At an intersection with a green light
         if sensed_inputs['light'] == 'green' and sensed_inputs['left'] == None:
-            self.state = "RIGHT on GREEN"
+            self.state = default_state + "RIGHT on GREEN"
         elif sensed_inputs['light'] == 'green' and sensed_inputs['oncoming'] == None:
-            self.state = "LEFT on GREEN"
-        else:
-            self.state = "FORWARD on GREEN"
+            self.state = default_state + "LEFT on GREEN"
+        elif sensed_inputs['light'] == 'green':
+            self.state = "ok to PROCEED"
 
 
-        # {'light': 'green', 'oncoming': None, 'right': None, 'left': None}
-        # When the smartcab is stationary
-        # When the smartcab is moving
-        # When the smartcab is turning left
-        # When the smartcab is turning right
 
 
 
@@ -76,7 +73,7 @@ def run():
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
 
     # Now simulate it
-    sim = Simulator(e, update_delay=0.1, display=True)  # create simulator (uses pygame when display=True, if available)
+    sim = Simulator(e, update_delay=1.0, display=True)  # create simulator (uses pygame when display=True, if available)
     # NOTE: To speed up simulation, reduce update_delay and/or set display=False
 
 
