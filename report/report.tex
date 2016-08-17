@@ -174,28 +174,33 @@ I ran a 100 simulation trials four times and got an average success rate of 19.3
 
 \section*{Question}
 
-\begin{figure}[!hbtp]
-\centering
+
+\begin{itemize}
+    \item What states have you identified that are appropriate for modeling the smartcab and environment?\\
+States: 
+  \begin{itemize}
+    \item \texttt{ok to RIGHT on RED} \\ At an intersection with a red light
+    \begin{figure}[!hbtp]
+    \centering
     \includegraphics[width=0.55\textwidth]{figures/oktoRIGHTonRED}
   
     \caption{\textbf{Agent State: ok to RIGHT on RED}}\label{fig:state1}
-\end{figure}
+    \end{figure}
+    
 
-\begin{figure}[!hbtp]
-\centering
+    \item \texttt{STOP RED light} \\ At an intersection with a red light and there is traffic from the left
+    
+    \item \texttt{ok to PROCEED or LEFT on GREEN or RIGHT on GREEN} \\ At an intersection with a green light with no oncoming traffic and no traffic on the left
+    \begin{figure}[!hbtp]
+    \centering
     \includegraphics[width=0.5\textwidth]{figures/oktoPROCEEDorLEFTonGREEN}
   
     \caption{\textbf{Agent State: ok to PROCEED or LEFT on GREEN or RIGHT on GREEN}}\label{fig:state2}
-\end{figure}
-
-\begin{itemize}
-\item What states have you identified that are appropriate for modeling the smartcab and environment?\\
-States: 
-  \begin{itemize}
-    \item \texttt{ok to RIGHT on RED}\\ At an intersection with a red light
-    \item \texttt{STOP RED light} \\ At an intersection with a red light and there is traffic from the left
-    \item \texttt{ok to PROCEED or LEFT on GREEN or RIGHT on GREEN} \\ At an intersection with a green light with no oncoming traffic and no traffic on the left
+    \end{figure}
+    
+    
     \item \texttt{ok to PROCEED or RIGHT on GREEN} \\At an intersection with a green light with no traffic on the left
+    
     \item \texttt{ok to PROCEED} \\ At an intersection with a green light
    
   \end{itemize}
@@ -206,15 +211,14 @@ States:
 
 There are basically two universal states that the smartcab can be in. Either it is in use, or it is not. In the case that it is not in use, it might be recharging, going through maintenance or just parked.
 
-When it is in service, there are a finite set of things that the smartcab can be doing. These states have to do with either movement or driving safety.
+When it is in service, there are a finite set of things that the smartcab can be doing. These states have to do with either movement or driving safety. These states have been mapped out in a transition diagram associated with figure \ref{fig:greenLight}.
 
-I have idenitified the default state of the smartcab while its being use to be in the state \texttt{``ok to PROCEED''}. \ref{fig:greenLight}
 
 
 \begin{figure}
 \centering
 % Define block styles
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+\tikzstyle{decision} = [diamond, minimum width=3cm, draw, fill=blue!20, 
     text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
 \tikzstyle{block} = [rectangle, draw, fill=green!20, 
     text width=5em, text centered, rounded corners, minimum height=4em]
@@ -246,12 +250,8 @@ I have idenitified the default state of the smartcab while its being use to be i
 
 
 
+\item Optional: How many states in total exist for the smartcab in this environment? \\ I believe there are five possible states in this smartcab environment.
 
-
-
-
-
-\item Optional: How many states in total exist for the smartcab in this environment?
 \item Optional: Does this number seem reasonable given that the goal of Q-Learning is to learn and make informed decisions about each state? Why or why not?
 \end{itemize}
 
