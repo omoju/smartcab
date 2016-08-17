@@ -88,6 +88,11 @@
 % Wide tables
 \usepackage{ltablex}
 
+% For tree diagrams
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+
 
 % -----------------------------------------------------------------------------
 
@@ -203,7 +208,43 @@ There are basically two universal states that the smartcab can be in. Either it 
 
 When it is in service, there are a finite set of things that the smartcab can be doing. These states have to do with either movement or driving safety.
 
-I have idenitified the default state of the smartcab while its being use to be in the state \texttt{``ok to PROCEED''}. 
+I have idenitified the default state of the smartcab while its being use to be in the state \texttt{``ok to PROCEED''}. \ref{fig:greenLight}
+
+
+\begin{figure}
+\centering
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=green!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+    
+\begin{tikzpicture}[node distance = 3cm, auto]
+    % Place nodes
+    \node [decision] (init) {light: green};
+    \node [decision, below of=init, node distance=3cm] (oncoming) {oncoming: None};
+    \node [decision, right=0.3cm of oncoming] (left){left: None};
+    \node [block, below of=oncoming] (left2) {left};
+    \node [block, below of=left] (right) {right};
+    \node [block, left=0.8cm of left2] (forward) {forward};
+    
+    % Draw edges
+    \path [line] (init) -- node {yes}(oncoming);
+    \path [line] (oncoming) -- node {yes}(left2);
+    \path [line] (init) -| node {no}(left);
+    \path [line] (init) -- node {yes}(left);
+    \path [line] (left) -- node {yes}(right);
+    \path [line] (init) -| node[anchor=east] {yes}(forward);
+
+
+\end{tikzpicture}
+\caption{State transition diagram for smartcab.}\label{fig:greenLight}
+\end{figure}
+
+
 
 
 
