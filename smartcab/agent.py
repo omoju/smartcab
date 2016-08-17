@@ -38,10 +38,10 @@ class LearningAgent(Agent):
             self.state = "STOP RED light"
 
         # At an intersection with a green light
-        if sensed_inputs['light'] == 'green' and sensed_inputs['left'] == None:
-            self.state = default_state + "RIGHT on GREEN"
-        elif sensed_inputs['light'] == 'green' and sensed_inputs['oncoming'] == None:
+        if sensed_inputs['light'] == 'green' and sensed_inputs['oncoming'] == None and sensed_inputs['left'] == None:
             self.state = default_state + "LEFT on GREEN"
+        elif sensed_inputs['light'] == 'green' and sensed_inputs['left'] == None:
+            self.state = default_state + "RIGHT on GREEN"
         elif sensed_inputs['light'] == 'green':
             self.state = "ok to PROCEED"
 
@@ -73,7 +73,7 @@ def run():
     # NOTE: You can set enforce_deadline=False while debugging to allow longer trials
 
     # Now simulate it
-    sim = Simulator(e, update_delay=1.0, display=True)  # create simulator (uses pygame when display=True, if available)
+    sim = Simulator(e, update_delay=1.5, display=True)  # create simulator (uses pygame when display=True, if available)
     # NOTE: To speed up simulation, reduce update_delay and/or set display=False
 
 

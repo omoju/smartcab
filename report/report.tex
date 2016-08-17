@@ -169,18 +169,30 @@ I ran a 100 simulation trials four times and got an average success rate of 19.3
 
 \section*{Question}
 
+\begin{figure}[!hbtp]
+\centering
+    \includegraphics[width=0.5\textwidth]{figures/oktoRIGHTonRED}
+  
+    \caption{\textbf{Agent State: ok to RIGHT on RED}}\label{fig:state1}
+\end{figure}
+
+\begin{figure}[!hbtp]
+\centering
+    \includegraphics[width=0.5\textwidth]{figures/oktoPROCEEDorLEFTonGREEN}
+  
+    \caption{\textbf{Agent State: ok to PROCEED or LEFT on GREEN}}\label{fig:state2}
+\end{figure}
+
 \begin{itemize}
 \item What states have you identified that are appropriate for modeling the smartcab and environment?\\
 States: 
   \begin{itemize}
-    \item At an intersection with a red light
-    \item At an intersection with a green light
-    \item At an intersection with oncoming traffic
-    \item When the smartcab is stationary
-    \item When the smartcab is moving
-    \item When the smartcab is turning left
-    \item When the smartcab is turning right
-
+    \item ``ok to RIGHT on RED"\\ At an intersection with a red light
+    \item  ``STOP RED light" \\ At an intersection with a red light and there is traffic from the left
+    \item ``ok to PROCEED or LEFT on GREEN" \\ At an intersection with a green light with no oncoming traffic and no traffic on the left
+    \item ``ok to PROCEED or RIGHT on GREEN" \\At an intersection with a green light with no traffic on the left
+    \item ``ok to PROCEED" \\ At an intersection with a green light
+   
   \end{itemize}
 
 
@@ -197,12 +209,7 @@ When it is in service, there are only a finite set of things that the smartcab c
 
 
 
-\begin{figure}[!hbtp]
-\centering
-    \includegraphics[width=0.9\textwidth]{figures/state1}
-  
-    \caption{\textbf{Agent State: Unobstructed}}\label{fig:state1}
-\end{figure}
+
 
 %--------------------------------------------------------------------------------
 %
