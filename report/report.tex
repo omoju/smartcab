@@ -234,14 +234,16 @@ When it is in service, there are a finite set of things that the smartcab can be
     \node [block, below of=oncoming] (left2) {left};
     \node [block, below of=left] (right) {right};
     \node [block, left=0.8cm of left2] (forward) {forward};
+    \node [block, right=0.8cm of right] (none) {none};
     
     % Draw edges
     \path [line] (init) -- node {yes}(oncoming);
     \path [line] (oncoming) -- node {yes}(left2);
-    \path [line] (init) -| node {no}(left);
+    \path [line] (init) -| node[anchor=south] {no}(left);
     \path [line] (init) -- node {yes}(left);
     \path [line] (left) -- node {yes}(right);
-    \path [line] (init) -| node[anchor=east] {yes}(forward);
+    \path [line] (init) -| node[anchor=east]  {yes}(forward);
+    \path [line] (init) -| (none);
 
 
 \end{tikzpicture}
