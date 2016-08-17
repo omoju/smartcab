@@ -1,4 +1,2 @@
 ---------------------------------New Trial---------------------------------
 
-Environment.step(): Primary agent ran out of time! Trial aborted.
-Environment.step(): Primary agent ran out of time! Trial aborted.

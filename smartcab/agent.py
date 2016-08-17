@@ -39,7 +39,7 @@ class LearningAgent(Agent):
 
         # At an intersection with a green light
         if sensed_inputs['light'] == 'green' and sensed_inputs['oncoming'] == None and sensed_inputs['left'] == None:
-            self.state = default_state + "LEFT on GREEN"
+            self.state = default_state + "LEFT on GREEN" + " or RIGHT on GREEN"
         elif sensed_inputs['light'] == 'green' and sensed_inputs['left'] == None:
             self.state = default_state + "RIGHT on GREEN"
         elif sensed_inputs['light'] == 'green':
